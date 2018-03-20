@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Loan</th>
+      <th>Loan Address</th>
+      <th>Amount owed</th>
     </tr>
   </thead>
 
@@ -14,7 +15,8 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.name %></td>
-        <td><%= customer.loan_id %></td>
+        <td><%= customer.loan_information['address'] %></td>
+        <td><%= customer.loan_information['amount_owed'] %></td>
       </tr>
     <% end %>
   </tbody>

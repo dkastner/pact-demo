@@ -10,6 +10,6 @@ end
 
 Pact.service_provider "microservice" do
 	honours_pact_with 'frontend' do
-    pact_uri File.expand_path('../../pacts/frontend-microservice.json', __FILE__)
+    pact_uri File.expand_path('../../../../pacts/frontend-microservice.json', __FILE__)
 	end
 end

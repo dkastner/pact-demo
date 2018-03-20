@@ -1,0 +1,37 @@
+{
+  "consumer": {
+    "name": "frontend"
+  },
+  "provider": {
+    "name": "microservice"
+  },
+  "interactions": [
+    {
+      "description": "a request for a loan",
+      "providerState": "an existing loan",
+      "request": {
+        "method": "get",
+        "path": "/loans/12345"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "address": "123 Main St",
+          "amount_owed": 56987
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

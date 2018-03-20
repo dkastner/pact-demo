@@ -1,3 +1,5 @@
+require 'microservice_client'
+
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
@@ -5,6 +7,12 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all.order(:name)
+
+    client = MicroserviceClient.new 4000
+
+    @customers.each do |customer|
+      customer.loan_information = client.loan(customer.loan_id)
+    end
   end
 
   # GET /customers/1
